@@ -1,0 +1,1 @@
+export { EducationalNotice } from "./EducationalNotice";

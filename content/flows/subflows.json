@@ -1,0 +1,825 @@
+{
+  "$schema": "../../lib/schemas/subflows.schema.json",
+  "_comment": "CONTEUDO PLACEHOLDER — aguardando aprovacao juridica (PRD secao 35.3). Nao publicar sem status 'aprovado'.",
+  "version": "0.1.0-placeholder",
+  "subflows": [
+    {
+      "id": "subflow-1",
+      "slug": "inicio-e-peticao-inicial",
+      "order": 1,
+      "title": "Inicio e peticao inicial",
+      "subtitle": "Como a reclamacao trabalhista comeca",
+      "description": "Explica o caminho desde o problema trabalhista ate o protocolo e distribuicao do processo.",
+      "theme": "blue",
+      "themeColor": "#1D4ED8",
+      "reviewStatus": "draft",
+      "lastReviewedAt": null,
+      "reviewedBy": null,
+      "nodes": [
+        {
+          "id": "problema-trabalhista",
+          "type": "step",
+          "titleSimple": "Problema trabalhista",
+          "titleTechnical": "Conflito de natureza trabalhista",
+          "citizenExplanation": "O processo comeca quando uma pessoa acredita que seus direitos trabalhistas nao foram respeitados.",
+          "textAlternative": "O trabalhador identifica um problema relacionado a seus direitos trabalhistas."
+        },
+        {
+          "id": "busca-orientacao",
+          "type": "step",
+          "titleSimple": "Busca de orientacao",
+          "titleTechnical": "Orientacao juridica ou sindical",
+          "citizenExplanation": "A pessoa pode buscar orientacao com advogado, sindicato ou Defensoria Publica antes de entrar com a acao.",
+          "textAlternative": "O trabalhador busca orientacao sobre seus direitos."
+        },
+        {
+          "id": "reuniao-documentos",
+          "type": "step",
+          "titleSimple": "Reuniao de documentos",
+          "titleTechnical": "Instrucao da inicial",
+          "citizenExplanation": "Documentos como contrato de trabalho, contracheques e registros sao reunidos para embasar a reclamacao.",
+          "textAlternative": "O reclamante reune os documentos necessarios para a acao."
+        },
+        {
+          "id": "definicao-pedidos",
+          "type": "step",
+          "titleSimple": "Definicao dos pedidos",
+          "titleTechnical": "Delimitacao da causa de pedir e pedidos",
+          "citizenExplanation": "O que sera pedido na acao e definido com base nos direitos que se acredita terem sido violados.",
+          "textAlternative": "Os pedidos da reclamacao sao definidos."
+        },
+        {
+          "id": "peticao-inicial",
+          "type": "step",
+          "titleSimple": "Peticao inicial",
+          "titleTechnical": "Peticao inicial trabalhista",
+          "citizenExplanation": "E o documento formal que da inicio ao processo, descrevendo os fatos e os pedidos.",
+          "textAlternative": "A peticao inicial e elaborada com os fatos e pedidos."
+        },
+        {
+          "id": "protocolo",
+          "type": "step",
+          "titleSimple": "Protocolo da acao",
+          "titleTechnical": "Protocolo e autuacao",
+          "citizenExplanation": "A peticao e oficialmente apresentada a Justica do Trabalho.",
+          "textAlternative": "A peticao inicial e protocolada na Justica do Trabalho."
+        },
+        {
+          "id": "distribuicao",
+          "type": "step",
+          "titleSimple": "Distribuicao do processo",
+          "titleTechnical": "Distribuicao entre Varas do Trabalho",
+          "citizenExplanation": "O processo recebe um numero e e enviado para a Vara do Trabalho responsavel.",
+          "textAlternative": "O processo e distribuido para uma Vara do Trabalho e recebe numero."
+        },
+        {
+          "id": "notificacao-proxima",
+          "type": "step",
+          "titleSimple": "Segue para notificacao",
+          "titleTechnical": "Designacao de audiencia e notificacao",
+          "citizenExplanation": "Apos a distribuicao, o processo segue para a notificacao do reclamado e designacao de audiencia.",
+          "textAlternative": "O processo segue para a etapa de notificacao do reclamado."
+        }
+      ],
+      "edges": [
+        {
+          "from": "peticao-inicial",
+          "to": "peticao-incompleta",
+          "label": "Peticao incompleta",
+          "type": "negative",
+          "explanation": "A peticao pode precisar de ajustes ou complementacao antes do protocolo."
+        },
+        {
+          "from": "peticao-inicial",
+          "to": "protocolo",
+          "label": "Peticao completa",
+          "type": "positive",
+          "explanation": "A peticao completa e protocolada e o processo segue."
+        }
+      ],
+      "textAlternative": [
+        "1. O trabalhador identifica um problema trabalhista.",
+        "2. Pode buscar orientacao juridica ou sindical.",
+        "3. Reune documentos necessarios.",
+        "4. Define os pedidos da reclamacao.",
+        "5. A peticao inicial e elaborada.",
+        "6. Se completa, e protocolada. Se incompleta, passa por ajustes.",
+        "7. O processo e distribuido para uma Vara do Trabalho.",
+        "8. Segue para notificacao do reclamado."
+      ]
+    },
+    {
+      "id": "subflow-2",
+      "slug": "notificacao-do-reclamado",
+      "order": 2,
+      "title": "Notificacao do reclamado",
+      "subtitle": "Como a outra parte e comunicada",
+      "description": "Explica o processo de comunicacao da empresa ou pessoa acionada sobre a reclamacao trabalhista.",
+      "theme": "blue",
+      "themeColor": "#1D4ED8",
+      "reviewStatus": "draft",
+      "lastReviewedAt": null,
+      "reviewedBy": null,
+      "nodes": [
+        {
+          "id": "processo-distribuido",
+          "type": "step",
+          "titleSimple": "Processo distribuido",
+          "titleTechnical": "Processo autuado e distribuido",
+          "citizenExplanation": "O processo ja foi registrado e distribuido para a Vara do Trabalho.",
+          "textAlternative": "O processo foi distribuido para a Vara do Trabalho."
+        },
+        {
+          "id": "secretaria-vara",
+          "type": "step",
+          "titleSimple": "Secretaria da Vara",
+          "titleTechnical": "Secretaria da Vara do Trabalho",
+          "citizenExplanation": "A secretaria da Vara do Trabalho prepara e envia a comunicacao ao reclamado.",
+          "textAlternative": "A secretaria da Vara prepara a notificacao."
+        },
+        {
+          "id": "emissao-notificacao",
+          "type": "step",
+          "titleSimple": "Emissao da notificacao",
+          "titleTechnical": "Emissao da notificacao/citacao",
+          "citizenExplanation": "E emitida a notificacao informando ao reclamado sobre a acao e a data da audiencia.",
+          "textAlternative": "A notificacao e emitida com informacoes sobre o processo e audiencia."
+        },
+        {
+          "id": "envio-comunicacao",
+          "type": "step",
+          "titleSimple": "Envio da comunicacao",
+          "titleTechnical": "Intimacao postal ou eletronica",
+          "citizenExplanation": "A comunicacao e enviada ao reclamado pelos meios oficiais.",
+          "textAlternative": "A notificacao e enviada ao reclamado."
+        },
+        {
+          "id": "ciencia-reclamado",
+          "type": "step",
+          "titleSimple": "Ciencia do reclamado",
+          "titleTechnical": "Confirmacao de recebimento da notificacao",
+          "citizenExplanation": "O reclamado toma conhecimento da acao e da data marcada para a audiencia.",
+          "textAlternative": "O reclamado recebe e toma ciencia da notificacao."
+        },
+        {
+          "id": "preparacao-defesa",
+          "type": "step",
+          "titleSimple": "Preparacao da defesa",
+          "titleTechnical": "Instrucao da defesa e contestacao",
+          "citizenExplanation": "O reclamado prepara sua defesa para apresentar na audiencia.",
+          "textAlternative": "O reclamado prepara sua defesa."
+        },
+        {
+          "id": "audiencia-designada",
+          "type": "step",
+          "titleSimple": "Audiencia designada",
+          "titleTechnical": "Audiencia trabalhista designada",
+          "citizenExplanation": "Com a notificacao concluida, as partes aguardam a data marcada para a audiencia.",
+          "textAlternative": "As partes aguardam a data da audiencia."
+        }
+      ],
+      "edges": [
+        {
+          "from": "envio-comunicacao",
+          "to": "nova-tentativa",
+          "label": "Notificacao nao recebida",
+          "type": "negative",
+          "explanation": "Se a notificacao nao for recebida regularmente, pode ser necessaria nova tentativa de comunicacao."
+        },
+        {
+          "from": "envio-comunicacao",
+          "to": "ciencia-reclamado",
+          "label": "Notificacao recebida",
+          "type": "positive",
+          "explanation": "A notificacao foi recebida regularmente e o reclamado tem ciencia do processo."
+        }
+      ],
+      "textAlternative": [
+        "1. O processo foi distribuido para a Vara do Trabalho.",
+        "2. A secretaria da Vara prepara a notificacao.",
+        "3. A notificacao e emitida com informacoes sobre o processo.",
+        "4. A comunicacao e enviada ao reclamado.",
+        "5. Se nao recebida regularmente, nova tentativa pode ser necessaria.",
+        "6. O reclamado toma ciencia da acao.",
+        "7. O reclamado prepara sua defesa.",
+        "8. As partes aguardam a data da audiencia."
+      ]
+    },
+    {
+      "id": "subflow-3",
+      "slug": "audiencia-inicial",
+      "order": 3,
+      "title": "Audiencia inicial",
+      "subtitle": "O que acontece na audiencia trabalhista",
+      "description": "Explica o primeiro grande momento do processo, com a presenca das partes e tentativa de acordo.",
+      "theme": "amber",
+      "themeColor": "#B45309",
+      "reviewStatus": "draft",
+      "lastReviewedAt": null,
+      "reviewedBy": null,
+      "nodes": [
+        {
+          "id": "audiencia-inicio",
+          "type": "step",
+          "titleSimple": "Audiencia",
+          "titleTechnical": "Audiencia trabalhista",
+          "citizenExplanation": "O dia marcado para a audiencia chega. As partes sao chamadas a comparecer na Vara do Trabalho.",
+          "textAlternative": "A audiencia e realizada na Vara do Trabalho na data designada."
+        },
+        {
+          "id": "reclamante-compareceu",
+          "type": "decision",
+          "titleSimple": "O reclamante compareceu?",
+          "titleTechnical": "Verificacao de comparecimento do reclamante",
+          "citizenExplanation": "A presenca do reclamante e verificada no inicio da audiencia.",
+          "textAlternative": "Verifica-se se o reclamante esta presente na audiencia."
+        },
+        {
+          "id": "reclamado-compareceu",
+          "type": "decision",
+          "titleSimple": "O reclamado compareceu?",
+          "titleTechnical": "Verificacao de comparecimento do reclamado",
+          "citizenExplanation": "A presenca do reclamado ou seu representante e verificada.",
+          "textAlternative": "Verifica-se se o reclamado ou representante esta presente."
+        },
+        {
+          "id": "tentativa-acordo",
+          "type": "step",
+          "titleSimple": "Tentativa inicial de acordo",
+          "titleTechnical": "Proposta conciliatoria inicial",
+          "citizenExplanation": "O juiz propoe uma tentativa de resolucao do conflito por acordo entre as partes.",
+          "textAlternative": "O juiz propoe tentativa de acordo entre as partes."
+        },
+        {
+          "id": "apresentacao-defesa",
+          "type": "step",
+          "titleSimple": "Apresentacao da defesa",
+          "titleTechnical": "Apresentacao da contestacao",
+          "citizenExplanation": "Se nao houver acordo, o reclamado apresenta sua versao dos fatos e documentos.",
+          "textAlternative": "O reclamado apresenta sua defesa caso nao haja acordo."
+        }
+      ],
+      "edges": [
+        {
+          "from": "reclamante-compareceu",
+          "to": "arquivamento",
+          "label": "Nao compareceu",
+          "type": "negative",
+          "explanation": "A ausencia do reclamante pode levar ao arquivamento da reclamacao, conforme o caso."
+        },
+        {
+          "from": "reclamante-compareceu",
+          "to": "reclamado-compareceu",
+          "label": "Compareceu",
+          "type": "positive",
+          "explanation": "O processo segue com a verificacao da presenca do reclamado."
+        },
+        {
+          "from": "reclamado-compareceu",
+          "to": "revelia",
+          "label": "Nao compareceu",
+          "type": "negative",
+          "explanation": "A ausencia do reclamado pode gerar revelia, conforme o caso."
+        },
+        {
+          "from": "reclamado-compareceu",
+          "to": "tentativa-acordo",
+          "label": "Compareceu",
+          "type": "positive",
+          "explanation": "O processo segue com a tentativa de acordo."
+        },
+        {
+          "from": "tentativa-acordo",
+          "to": "acordo-homologado",
+          "label": "Houve acordo",
+          "type": "positive",
+          "explanation": "O acordo e homologado pelo juiz e o processo e encerrado."
+        },
+        {
+          "from": "tentativa-acordo",
+          "to": "apresentacao-defesa",
+          "label": "Nao houve acordo",
+          "type": "neutral",
+          "explanation": "Sem acordo, o processo segue com a apresentacao da defesa."
+        }
+      ],
+      "textAlternative": [
+        "1. A audiencia e realizada na data designada.",
+        "2. Verifica-se se o reclamante compareceu. Se nao, pode ocorrer arquivamento.",
+        "3. Verifica-se se o reclamado compareceu. Se nao, pode ocorrer revelia.",
+        "4. O juiz propoe tentativa de acordo.",
+        "5. Se houver acordo, e homologado e o processo encerra.",
+        "6. Se nao houver acordo, o reclamado apresenta sua defesa.",
+        "7. O processo segue para a fase de provas."
+      ]
+    },
+    {
+      "id": "subflow-4",
+      "slug": "defesa-e-contestacao",
+      "order": 4,
+      "title": "Defesa e contestacao",
+      "subtitle": "Como o reclamado responde a acao",
+      "description": "Explica como o reclamado apresenta sua versao dos fatos e documentos no processo.",
+      "theme": "blue",
+      "themeColor": "#1D4ED8",
+      "reviewStatus": "draft",
+      "lastReviewedAt": null,
+      "reviewedBy": null,
+      "nodes": [
+        {
+          "id": "recebimento-acao",
+          "type": "step",
+          "titleSimple": "Recebimento da acao",
+          "titleTechnical": "Ciencia da reclamacao",
+          "citizenExplanation": "O reclamado toma conhecimento dos pedidos feitos contra ele.",
+          "textAlternative": "O reclamado toma conhecimento da reclamacao e dos pedidos."
+        },
+        {
+          "id": "analise-pedidos",
+          "type": "step",
+          "titleSimple": "Analise dos pedidos",
+          "titleTechnical": "Analise da peticao inicial",
+          "citizenExplanation": "Os pedidos feitos na reclamacao sao analisados para preparar a resposta.",
+          "textAlternative": "Os pedidos da reclamacao sao analisados pelo reclamado."
+        },
+        {
+          "id": "reuniao-documentos-defesa",
+          "type": "step",
+          "titleSimple": "Reuniao de documentos",
+          "titleTechnical": "Instrucao da defesa",
+          "citizenExplanation": "O reclamado reune os documentos que embasarao sua defesa.",
+          "textAlternative": "O reclamado reune documentos para sua defesa."
+        },
+        {
+          "id": "preparacao-defesa",
+          "type": "step",
+          "titleSimple": "Preparacao da defesa",
+          "titleTechnical": "Elaboracao da contestacao",
+          "citizenExplanation": "A defesa e elaborada com os argumentos e documentos do reclamado.",
+          "textAlternative": "A defesa e preparada com argumentos e documentos."
+        },
+        {
+          "id": "apresentacao-contestacao",
+          "type": "step",
+          "titleSimple": "Apresentacao da contestacao",
+          "titleTechnical": "Apresentacao da contestacao em audiencia",
+          "citizenExplanation": "O reclamado apresenta sua versao dos fatos e documentos na audiencia.",
+          "textAlternative": "A contestacao e apresentada na audiencia."
+        },
+        {
+          "id": "juntada-documentos",
+          "type": "step",
+          "titleSimple": "Juntada de documentos",
+          "titleTechnical": "Juntada de documentos aos autos",
+          "citizenExplanation": "Os documentos que embasam a defesa sao juntados ao processo.",
+          "textAlternative": "Os documentos de defesa sao juntados ao processo."
+        },
+        {
+          "id": "manifestacao-reclamante",
+          "type": "step",
+          "titleSimple": "Manifestacao do reclamante",
+          "titleTechnical": "Manifestacao do reclamante sobre a defesa",
+          "citizenExplanation": "O reclamante pode se manifestar sobre a defesa apresentada.",
+          "textAlternative": "O reclamante se manifesta sobre a defesa apresentada."
+        }
+      ],
+      "edges": [
+        {
+          "from": "apresentacao-contestacao",
+          "to": "argumentos-processuais",
+          "label": "Com preliminares",
+          "type": "neutral",
+          "explanation": "Quando ha preliminares ou impugnacoes, argumentos processuais sao apresentados antes do merito."
+        },
+        {
+          "from": "apresentacao-contestacao",
+          "to": "juntada-documentos",
+          "label": "Sem preliminares",
+          "type": "neutral",
+          "explanation": "Sem preliminares, segue diretamente para juntada de documentos e instrucao."
+        }
+      ],
+      "textAlternative": [
+        "1. O reclamado toma conhecimento da reclamacao.",
+        "2. Os pedidos sao analisados.",
+        "3. Documentos de defesa sao reunidos.",
+        "4. A contestacao e elaborada.",
+        "5. A contestacao e apresentada na audiencia.",
+        "6. Documentos sao juntados ao processo.",
+        "7. Pode haver argumentos processuais preliminares, conforme o caso.",
+        "8. O reclamante se manifesta sobre a defesa.",
+        "9. O processo segue para a instrucao."
+      ]
+    },
+    {
+      "id": "subflow-5",
+      "slug": "provas-e-instrucao",
+      "order": 5,
+      "title": "Provas e instrucao",
+      "subtitle": "Como o juiz reune informacoes sobre o caso",
+      "description": "Explica como documentos, depoimentos e pericias sao usados para o juiz entender os fatos.",
+      "theme": "teal",
+      "themeColor": "#0E7490",
+      "reviewStatus": "draft",
+      "lastReviewedAt": null,
+      "reviewedBy": null,
+      "nodes": [
+        {
+          "id": "inicio-instrucao",
+          "type": "step",
+          "titleSimple": "Inicio da instrucao",
+          "titleTechnical": "Abertura da fase probatoria",
+          "citizenExplanation": "O processo entra na fase em que as provas sao produzidas para que o juiz possa decidir.",
+          "textAlternative": "O processo entra na fase de instrucao e producao de provas."
+        },
+        {
+          "id": "depoimentos",
+          "type": "step",
+          "titleSimple": "Depoimentos das partes",
+          "titleTechnical": "Depoimento pessoal das partes",
+          "citizenExplanation": "O reclamante e o reclamado podem prestar depoimento sobre os fatos do caso.",
+          "textAlternative": "As partes prestam depoimentos sobre os fatos."
+        },
+        {
+          "id": "documentos",
+          "type": "step",
+          "titleSimple": "Documentos",
+          "titleTechnical": "Prova documental",
+          "citizenExplanation": "Documentos como contratos, contracheques e registros sao analisados.",
+          "textAlternative": "Documentos sao analisados como prova."
+        },
+        {
+          "id": "testemunhas",
+          "type": "step",
+          "titleSimple": "Testemunhas",
+          "titleTechnical": "Oitiva de testemunhas",
+          "citizenExplanation": "Pessoas que presenciaram situacoes relacionadas ao caso podem ser ouvidas.",
+          "textAlternative": "Testemunhas podem ser ouvidas sobre os fatos."
+        },
+        {
+          "id": "pericia",
+          "type": "step",
+          "titleSimple": "Pericia tecnica",
+          "titleTechnical": "Pericia judicial",
+          "citizenExplanation": "Quando necessario, um especialista analisa questoes tecnicas, como condicoes de trabalho ou calculos.",
+          "textAlternative": "Um perito analisa questoes tecnicas quando necessario."
+        },
+        {
+          "id": "alegacoes-finais",
+          "type": "step",
+          "titleSimple": "Alegacoes finais",
+          "titleTechnical": "Razoes finais",
+          "citizenExplanation": "As partes apresentam seus ultimos argumentos antes da decisao do juiz.",
+          "textAlternative": "As partes apresentam seus argumentos finais."
+        }
+      ],
+      "edges": [
+        {
+          "from": "testemunhas",
+          "to": "pericia",
+          "label": "Pericia necessaria",
+          "type": "neutral",
+          "explanation": "Quando ha questao tecnica que exige analise especializada, pode ser necessaria pericia."
+        },
+        {
+          "from": "testemunhas",
+          "to": "alegacoes-finais",
+          "label": "Sem pericia",
+          "type": "neutral",
+          "explanation": "Quando nao ha necessidade de pericia, o processo segue para alegacoes finais."
+        },
+        {
+          "from": "pericia",
+          "to": "alegacoes-finais",
+          "label": "Apos laudo e manifestacao",
+          "type": "neutral",
+          "explanation": "Depois do laudo pericial e manifestacao das partes, o processo segue para alegacoes finais."
+        }
+      ],
+      "textAlternative": [
+        "1. O processo entra na fase de instrucao.",
+        "2. As partes prestam depoimentos.",
+        "3. Documentos sao analisados.",
+        "4. Testemunhas podem ser ouvidas.",
+        "5. Se necessario, e realizada pericia tecnica com laudo.",
+        "6. As partes apresentam alegacoes finais.",
+        "7. O processo segue para o acordo final ou sentenca."
+      ]
+    },
+    {
+      "id": "subflow-6",
+      "slug": "sentenca",
+      "order": 6,
+      "title": "Sentenca do juiz",
+      "subtitle": "Como o juiz decide o processo",
+      "description": "Explica a analise e a decisao do juiz, com os possiveis resultados da reclamacao trabalhista.",
+      "theme": "purple",
+      "themeColor": "#6D28D9",
+      "reviewStatus": "draft",
+      "lastReviewedAt": null,
+      "reviewedBy": null,
+      "nodes": [
+        {
+          "id": "fim-provas",
+          "type": "step",
+          "titleSimple": "Fim da fase de provas",
+          "titleTechnical": "Encerramento da instrucao",
+          "citizenExplanation": "A fase de provas e encerrada e o processo caminha para a decisao.",
+          "textAlternative": "A fase de provas e encerrada."
+        },
+        {
+          "id": "nova-tentativa-acordo",
+          "type": "step",
+          "titleSimple": "Nova tentativa de acordo",
+          "titleTechnical": "Segunda proposta conciliatoria",
+          "citizenExplanation": "Antes da sentenca, o juiz pode fazer uma nova proposta de acordo entre as partes.",
+          "textAlternative": "O juiz pode propor nova tentativa de acordo antes da sentenca."
+        },
+        {
+          "id": "analise-juiz",
+          "type": "step",
+          "titleSimple": "Analise do juiz",
+          "titleTechnical": "Analise dos autos pelo julgador",
+          "citizenExplanation": "O juiz analisa tudo que foi produzido no processo para tomar sua decisao.",
+          "textAlternative": "O juiz analisa o processo para decidir."
+        },
+        {
+          "id": "sentenca-final",
+          "type": "step",
+          "titleSimple": "Sentenca",
+          "titleTechnical": "Prolacao da sentenca",
+          "citizenExplanation": "O juiz profere a sentenca, decidindo cada pedido feito na reclamacao.",
+          "textAlternative": "O juiz profere a sentenca decidindo os pedidos."
+        },
+        {
+          "id": "intimacao-partes",
+          "type": "step",
+          "titleSimple": "Intimacao das partes",
+          "titleTechnical": "Publicacao e intimacao da sentenca",
+          "citizenExplanation": "As partes sao comunicadas sobre a sentenca e o prazo para eventual recurso comeca a correr.",
+          "textAlternative": "As partes sao intimadas da sentenca e o prazo para recurso comeca."
+        }
+      ],
+      "edges": [
+        {
+          "from": "nova-tentativa-acordo",
+          "to": "acordo-final",
+          "label": "Acordo final",
+          "type": "positive",
+          "explanation": "As partes chegam a acordo e o processo e encerrado por homologacao."
+        },
+        {
+          "from": "nova-tentativa-acordo",
+          "to": "analise-juiz",
+          "label": "Sem acordo",
+          "type": "neutral",
+          "explanation": "Sem acordo, o juiz analisa o processo e profere sentenca."
+        },
+        {
+          "from": "sentenca-final",
+          "to": "procedente",
+          "label": "Procedente",
+          "type": "positive",
+          "explanation": "O juiz acolheu todos os pedidos do reclamante."
+        },
+        {
+          "from": "sentenca-final",
+          "to": "improcedente",
+          "label": "Improcedente",
+          "type": "negative",
+          "explanation": "O juiz nao acolheu os pedidos do reclamante."
+        },
+        {
+          "from": "sentenca-final",
+          "to": "parcialmente-procedente",
+          "label": "Parcialmente procedente",
+          "type": "neutral",
+          "explanation": "O juiz acolheu parte dos pedidos do reclamante."
+        }
+      ],
+      "textAlternative": [
+        "1. A fase de provas e encerrada.",
+        "2. O juiz pode propor nova tentativa de acordo.",
+        "3. Se houver acordo final, o processo e encerrado por homologacao.",
+        "4. Se nao houver acordo, o juiz analisa todo o processo.",
+        "5. O juiz profere a sentenca.",
+        "6. A sentenca pode ser: procedente, improcedente ou parcialmente procedente.",
+        "7. As partes sao intimadas e o prazo para recurso comeca a correr."
+      ]
+    },
+    {
+      "id": "subflow-7",
+      "slug": "recurso-trabalhista",
+      "order": 7,
+      "title": "Recurso trabalhista",
+      "subtitle": "Como a decisao pode ser revisada",
+      "description": "Explica como funciona o recurso para que o Tribunal analise a sentenca do juiz.",
+      "theme": "teal",
+      "themeColor": "#0E7490",
+      "reviewStatus": "draft",
+      "lastReviewedAt": null,
+      "reviewedBy": null,
+      "nodes": [
+        {
+          "id": "sentenca-publicada",
+          "type": "step",
+          "titleSimple": "Sentenca publicada",
+          "titleTechnical": "Publicacao da sentenca",
+          "citizenExplanation": "A sentenca foi publicada e as partes foram intimadas.",
+          "textAlternative": "A sentenca foi publicada e as partes foram intimadas."
+        },
+        {
+          "id": "verificacao-requisitos",
+          "type": "step",
+          "titleSimple": "Verificacao de prazo e requisitos",
+          "titleTechnical": "Verificacao de admissibilidade do recurso",
+          "citizenExplanation": "Quem quer recorrer precisa verificar o prazo legal e os requisitos necessarios para o recurso.",
+          "textAlternative": "O prazo e os requisitos para o recurso sao verificados."
+        },
+        {
+          "id": "apresentacao-recurso",
+          "type": "step",
+          "titleSimple": "Apresentacao do recurso",
+          "titleTechnical": "Interposicao do recurso ordinario",
+          "citizenExplanation": "O recurso e apresentado dentro do prazo, com os argumentos sobre o que se discorda na sentenca.",
+          "textAlternative": "O recurso e apresentado com os argumentos da parte."
+        },
+        {
+          "id": "contrarrazoes",
+          "type": "step",
+          "titleSimple": "Contrarrazoes",
+          "titleTechnical": "Contrarrazoes ao recurso",
+          "citizenExplanation": "A outra parte responde ao recurso apresentado.",
+          "textAlternative": "A outra parte apresenta contrarrazoes ao recurso."
+        },
+        {
+          "id": "envio-tribunal",
+          "type": "step",
+          "titleSimple": "Envio ao Tribunal",
+          "titleTechnical": "Remessa ao Tribunal Regional do Trabalho",
+          "citizenExplanation": "O processo e enviado ao Tribunal Regional do Trabalho para julgamento do recurso.",
+          "textAlternative": "O processo e enviado ao TRT para julgamento do recurso."
+        },
+        {
+          "id": "julgamento-recurso",
+          "type": "step",
+          "titleSimple": "Julgamento do recurso",
+          "titleTechnical": "Julgamento pelo Tribunal Regional do Trabalho",
+          "citizenExplanation": "O Tribunal analisa o recurso e decide se mantem, modifica ou anula a sentenca.",
+          "textAlternative": "O TRT julga o recurso e decide sobre a sentenca."
+        }
+      ],
+      "edges": [
+        {
+          "from": "sentenca-publicada",
+          "to": "transito-julgado",
+          "label": "Sem recurso",
+          "type": "positive",
+          "explanation": "Se nenhuma parte recorrer no prazo legal, a sentenca transita em julgado."
+        },
+        {
+          "from": "sentenca-publicada",
+          "to": "verificacao-requisitos",
+          "label": "Com recurso",
+          "type": "neutral",
+          "explanation": "A parte interessada verifica o prazo e os requisitos para recorrer."
+        },
+        {
+          "from": "julgamento-recurso",
+          "to": "mantem-sentenca",
+          "label": "Mantem",
+          "type": "neutral",
+          "explanation": "O Tribunal mantem a sentenca original."
+        },
+        {
+          "from": "julgamento-recurso",
+          "to": "modifica-sentenca",
+          "label": "Modifica",
+          "type": "neutral",
+          "explanation": "O Tribunal modifica parte ou toda a sentenca."
+        },
+        {
+          "from": "julgamento-recurso",
+          "to": "anula-sentenca",
+          "label": "Anula",
+          "type": "neutral",
+          "explanation": "O Tribunal anula a sentenca e pode determinar novo exame."
+        }
+      ],
+      "textAlternative": [
+        "1. A sentenca e publicada e as partes sao intimadas.",
+        "2. Se nenhuma parte recorrer, a sentenca transita em julgado.",
+        "3. A parte que quer recorrer verifica o prazo e requisitos.",
+        "4. O recurso e apresentado com os argumentos.",
+        "5. A outra parte apresenta contrarrazoes.",
+        "6. O processo e enviado ao Tribunal Regional do Trabalho.",
+        "7. O TRT julga o recurso: pode manter, modificar ou anular a sentenca.",
+        "8. O processo segue para o transito em julgado."
+      ]
+    },
+    {
+      "id": "subflow-8",
+      "slug": "liquidacao-e-execucao",
+      "order": 8,
+      "title": "Liquidacao e execucao",
+      "subtitle": "Como a decisao ou acordo e cumprido",
+      "description": "Explica a fase final do processo, em que a obrigacao reconhecida deve ser cumprida.",
+      "theme": "green",
+      "themeColor": "#15803D",
+      "reviewStatus": "draft",
+      "lastReviewedAt": null,
+      "reviewedBy": null,
+      "nodes": [
+        {
+          "id": "transito-julgado",
+          "type": "step",
+          "titleSimple": "Transito em julgado",
+          "titleTechnical": "Transito em julgado",
+          "citizenExplanation": "A decisao se torna definitiva: nao cabe mais recurso e ela deve ser cumprida.",
+          "textAlternative": "A decisao transitou em julgado e se tornou definitiva."
+        },
+        {
+          "id": "liquidacao",
+          "type": "step",
+          "titleSimple": "Liquidacao",
+          "titleTechnical": "Liquidacao da sentenca",
+          "citizenExplanation": "Os valores a serem pagos sao calculados com base na decisao.",
+          "textAlternative": "Os valores a serem pagos sao calculados."
+        },
+        {
+          "id": "definicao-valor",
+          "type": "step",
+          "titleSimple": "Definicao do valor",
+          "titleTechnical": "Calculo e homologacao dos valores",
+          "citizenExplanation": "O valor definitivo a ser pago e definido e homologado.",
+          "textAlternative": "O valor definitivo a ser pago e definido."
+        },
+        {
+          "id": "inicio-execucao",
+          "type": "step",
+          "titleSimple": "Inicio da execucao",
+          "titleTechnical": "Fase executiva",
+          "citizenExplanation": "O processo entra na fase de execucao para garantir que a obrigacao seja cumprida.",
+          "textAlternative": "O processo entra na fase de execucao."
+        },
+        {
+          "id": "medidas-execucao",
+          "type": "step",
+          "titleSimple": "Medidas de execucao",
+          "titleTechnical": "Medidas coercitivas de execucao",
+          "citizenExplanation": "Se nao houver pagamento voluntario, medidas para localizar e garantir o pagamento podem ser tomadas.",
+          "textAlternative": "Medidas de execucao sao tomadas para garantir o pagamento."
+        },
+        {
+          "id": "pagamento-cumprimento",
+          "type": "step",
+          "titleSimple": "Pagamento / cumprimento",
+          "titleTechnical": "Cumprimento da obrigacao",
+          "citizenExplanation": "A obrigacao reconhecida pela Justica e cumprida, voluntariamente ou por medidas da execucao.",
+          "textAlternative": "A obrigacao e cumprida voluntariamente ou por execucao."
+        },
+        {
+          "id": "encerramento",
+          "type": "step",
+          "titleSimple": "Encerramento",
+          "titleTechnical": "Extincao do processo com resolucao do merito",
+          "citizenExplanation": "O processo e encerrado apos o cumprimento da obrigacao ou outro desfecho aplicavel.",
+          "textAlternative": "O processo e encerrado."
+        }
+      ],
+      "edges": [
+        {
+          "from": "inicio-execucao",
+          "to": "pagamento-cumprimento",
+          "label": "Pagamento espontaneo",
+          "type": "positive",
+          "explanation": "A parte paga voluntariamente e o processo segue para encerramento."
+        },
+        {
+          "from": "inicio-execucao",
+          "to": "medidas-execucao",
+          "label": "Sem pagamento espontaneo",
+          "type": "negative",
+          "explanation": "Sem pagamento voluntario, medidas de execucao podem ser adotadas."
+        },
+        {
+          "from": "medidas-execucao",
+          "to": "pagamento-cumprimento",
+          "label": "Apos medidas",
+          "type": "neutral",
+          "explanation": "Apos as medidas de execucao, o pagamento e realizado e o processo segue para encerramento."
+        }
+      ],
+      "textAlternative": [
+        "1. A decisao transita em julgado e se torna definitiva.",
+        "2. Os valores a serem pagos sao calculados na liquidacao.",
+        "3. O valor definitivo e definido.",
+        "4. O processo entra na fase de execucao.",
+        "5. Se houver pagamento espontaneo, o processo segue para encerramento.",
+        "6. Se nao houver pagamento, medidas de execucao podem ser tomadas.",
+        "7. Apos as medidas, o pagamento ou cumprimento e realizado.",
+        "8. O processo e encerrado."
+      ]
+    }
+  ]
+}

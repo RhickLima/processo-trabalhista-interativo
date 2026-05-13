@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design System — Processo Trabalhista Interativo (TRT 18°)
+   Cores definidas conforme PRD secao 32.2
+   ============================================================ */
+
+@theme inline {
+  /* Cores funcionais do sistema */
+  --color-etapa: #1D4ED8;
+  --color-decisao: #B45309;
+  --color-alerta: #C2410C;
+  --color-sentenca: #6D28D9;
+  --color-acordo: #15803D;
+  --color-recurso: #0E7490;
+  --color-arquivamento: #4B5563;
+  --color-atencao: #B91C1C;
+
+  /* Textos */
+  --color-text-primary: #1F2937;
+  --color-text-on-color: #FFFFFF;
+
+  /* Fundos */
+  --color-background: #FFFFFF;
+  --color-surface: #F9FAFB;
+
+  /* Fonte */
+  --font-sans: var(--font-inter);
+}
+
+/* ============================================================
+   Acessibilidade: prefers-reduced-motion (PRD secao 32.4)
+   Rede de seguranca global — complementa useReducedMotion()
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Base global
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  /* Tamanho minimo de corpo: 16px mobile, 17px desktop (PRD secao 32.5) */
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.0625rem; /* 17px */
+  }
+}
+
+/* Foco visivel para navegacao por teclado (PRD secao 30.2) */
+:focus-visible {
+  outline: 3px solid #1D4ED8;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Linha base para paragrafos (PRD secao 32.5) */
+p {
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+}
