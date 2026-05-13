@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://trt18.jus.br/processo-trabalhista/sitemap.xml
