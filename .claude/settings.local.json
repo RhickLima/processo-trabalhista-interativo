@@ -1,0 +1,8 @@
+{
+  "enabledPlugins": {
+    "ruflo-workflows@ruflo": true
+  },
+  "disabledMcpjsonServers": [
+    "ruflo"
+  ]
+}
